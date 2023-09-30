@@ -10,7 +10,7 @@ cursor = banco.cursor()
 
 
 #Criando código do trabalho final do curso
-#Sistema de cadastro de pessoas (nome completo, rg, idade)
+#Sistema de cadastro de pessoas (nome completo, rg, cpf, idade)
 #Funcionalidades (adcionar, excluir e listar pessoas)
 
 #Variável que armazena
@@ -51,12 +51,14 @@ def listar_pessoas():
 # Percorro todo o "banco de dados" e imprimo as informações sobre cada pessoa
 #0 -> nome
 #1 -> rg
-#2 -> idade
+#2 -> cpf
+#3 -> idade
 
   for pessoa in banco_cadastro:
     print(f"Nome: {pessoa[0]}")
     print(f"RG: {pessoa[1]}")
-    print(f"Idade: {pessoa[2]}")
+    print(f"CPF: {pessoa[2]}")
+    print(f"Idade: {pessoa[3]}")
     print("-" * 20)
 
 #A funcão recebe como parâmetro o nome que o usuário deseja editar
@@ -68,10 +70,11 @@ def editar_pessoa(nome):
       #Pergunto para o usuário os novos dados
       nome_novo = input("Digite o nome completo da pessoa")
       rg_novo = input("Digite o rg da pessoa")
+      cpf_novo = input("Digite o cpf da pessoa")
       idade_nova = input("Digite a idade da pessoa")
       
 #Passo os 3 dados para uma só variável (crio um vetor)
-      cadastro_editar = [nome_novo, rg_novo, idade_nova]
+      cadastro_editar = [nome_novo, rg_novo, idade_nova,cpf_novo]
 
 #Acesso o vetor cadastro_editar para inserir as novas informações
       for i in range(len(cadastro_editar)):
